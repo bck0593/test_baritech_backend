@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: ls -la   # ← ここで main.py/requirements.txt が見えることを確認
 
       - name: Deploy to Azure Web App (ZIP/OneDeploy)
         uses: azure/webapps-deploy@v3
@@ -18,5 +19,3 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9CE0055835FD44F3AF7B880B5FA9AAC4 }}
           package: .
-
-
