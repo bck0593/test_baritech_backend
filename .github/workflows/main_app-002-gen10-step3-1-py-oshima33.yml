@@ -15,7 +15,8 @@ jobs:
       - name: Deploy to Azure Web App (ZIP/OneDeploy)
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'app-002-gen10-step3-1-py-oshima33'
+          app-name: 'app-002-gen10-step3-2-py-oshima13'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9CE0055835FD44F3AF7B880B5FA9AAC4 }}
           package: .
+
