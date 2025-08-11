@@ -1,4 +1,4 @@
-name: Deploy FastAPI to Azure App Service (root)
+name: Deploy FastAPI to Azure App Service
 
 on:
   push:
@@ -10,13 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: ls -la   # ← ここで main.py/requirements.txt が見えることを確認
 
       - name: Deploy to Azure Web App (ZIP/OneDeploy)
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'app-002-gen10-step3-2-py-oshima13'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9CE0055835FD44F3AF7B880B5FA9AAC4 }}
-          package: .
-
+          app-name: 'app-002-gen10-step3-2-py-oshima13'   # ←実際のアプリ名に
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}  # ←再発行して入れたSecret
+          package: .  # ルートに main.py / requirements.txt がある場合。backend配下なら ./backend
